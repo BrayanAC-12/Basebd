@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Contenido</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="logo">
+            <div class="logo-placeholder"></div>
+            <img src="img/logu.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#acerca" class="nav-link">Acerca de mí</a></li>
+                <li><a href="#trabajos" class="nav-link">Trabajos</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="#admin" class="nav-link hidden" id="adminNavLink">Admin</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn" class="btn-login">Iniciar Sesión</button>
+            <button id="logoutBtn" class="btn-logout hidden">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <!-- SECCIÓN INICIO -->
+    <section id="inicio" class="section active">
+        <div class="hero-portada">
+            <div class="hero-content">
+                <h1 class="hero-title">Bienvenido al Sistema de Gestión Académica</h1>
+                <p class="hero-subtitle">Organiza y gestiona tus trabajos universitarios de manera eficiente</p>
+                <button class="hero-btn" onclick="mostrarSeccion('trabajos')">
+                    <span>Ver Mis Trabajos</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>16</h3>
+                    <p>Semanas</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Organizado</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Disponible</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ACERCA DE MÍ -->
+    <section id="acerca" class="section">
+        <div class="container">
+            <div class="acerca-content">
+                <div class="acerca-text">
+                    <h2>Acerca de Mí</h2>
+                    <div class="acerca-info">
+                        <div class="info-item">
+                            <h3>👨‍💻 Desarrollador</h3>
+                            <p>Estudiante de ingeniería de sistemas con pasión por el desarrollo web y bases de datos.</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>🎯 Objetivo</h3>
+                            <p>Crear soluciones tecnológicas que faciliten el aprendizaje y la organización académica.</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>📚 Especialidad</h3>
+                            <p>Desarrollo FullStack con enfoque en aplicaciones web educativas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="acerca-image">
+                    <div class="image-placeholder">
+                        <span>🎓</span>
+                        <p>Desarrollador Académico</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TRABAJOS -->
+    <section id="trabajos" class="section">
+        <div class="container">
+            <h2 class="section-title">Trabajos por Semanas</h2>
+            <p class="section-subtitle">Gestión completa de tus trabajos académicos</p>
+            
+            <div class="trabajos-grid" id="weeksContainer">
+                <!-- Las semanas se cargan con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <div class="contacto-content">
+                <div class="contacto-info">
+                    <h2>Contacto</h2>
+                    <div class="contacto-item">
+                        <h3>📧 Email</h3>
+                        <p>desarrollador@sistemabd.edu</p>
+                    </div>
+                    <div class="contacto-item">
+                        <h3>📱 Teléfono</h3>
+                        <p>+51 987 654 321</p>
+                    </div>
+                    <div class="contacto-item">
+                        <h3>📍 Dirección</h3>
+                        <p>Lima, Perú</p>
+                    </div>
+                </div>
+                <div class="contacto-form">
+                    <h3>Envíame un mensaje</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Tu nombre" required>
+                        <input type="email" placeholder="Tu email" required>
+                        <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+                        <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ADMIN -->
+    <section id="admin" class="section">
+        <div class="container">
+            <div class="admin-panel">
+                <h2 class="section-title">Panel de Administración</h2>
+                
+                <div class="admin-actions">
+                    <button class="btn-secondary" onclick="mostrarSeccion('trabajos')">← Volver a Trabajos</button>
+                </div>
+
+                <div class="admin-form-container">
+                    <form class="admin-form" id="adminForm">
+                        <div class="form-group">
+                            <label>Seleccionar Semana:</label>
+                            <select id="weekSelect" class="form-select" required>
+                                <option value="">-- Elegir semana --</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Título del trabajo:</label>
+                            <input type="text" id="contentTitle" class="form-input" placeholder="Ej: Diagrama y Práctica" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descripción detallada:</label>
+                            <textarea id="contentDescription" class="form-textarea" placeholder="Describe el contenido de esta semana..." rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Subir archivos (múltiples):</label>
+                            <input type="file" id="fileUpload" class="form-input" multiple>
+                            <small>Puedes seleccionar múltiples archivos</small>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn-success">💾 Guardar Contenido</button>
+                            <button type="button" id="deleteContent" class="btn-danger hidden">🗑️ Eliminar</button>
+                            <button type="button" id="clearForm" class="btn-secondary">🔄 Limpiar</button>
+                        </div>
+                    </form>
+
+                    <div class="upload-preview hidden" id="uploadPreview">
+                        <h4>Archivos a subir:</h4>
+                        <div id="fileList"></div>
+                    </div>
+                </div>
+
+                <div id="adminMessage"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE VISUALIZACIÓN -->
+    <div id="contentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Contenido de la Semana</h3>
+                <span class="close" onclick="cerrarModal('contentModal')">&times;</span>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Contenido dinámico -->
+            </div>
+            <div class="modal-footer">
+                <div class="download-options" id="downloadOptions">
+                    <h4>Descargar archivos:</h4>
+                    <div id="fileDownloads"></div>
+                </div>
+                <button class="btn-secondary" onclick="cerrarModal('contentModal')">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE LOGIN -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content login-modal">
+            <div class="modal-header">
+                <h3>🔐 Iniciar Sesión</h3>
+                <span class="close" onclick="cerrarModal('loginModal')">&times;</span>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Usuario:</label>
+                    <input type="text" id="username" placeholder="Ingresa tu usuario" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+                </div>
+                <button type="submit" class="btn-login">Ingresar al Sistema</button>
+            </form>
+            <div class="login-info">
+                <p><strong>Credenciales de prueba:</strong></p>
+                <p>Admin: <code>admin</code> / <code>admin123</code></p>
+                <p>Usuario: <code>usuario</code> / <code>user123</code></p>
+            </div>
+            <div id="loginMessage"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
