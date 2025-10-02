@@ -589,7 +589,117 @@ nav a:hover, nav a.active {
 }
 
 .login-modal {
-    max-width: 400px;
+    width: 380px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    font-family: "Segoe UI", Arial, sans-serif;
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Encabezado SOLO para login-modal */
+.login-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.login-modal .modal-header h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.login-modal .modal-header .close {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+    transition: 0.3s;
+}
+
+.login-modal .modal-header .close:hover {
+    color: #e74c3c;
+}
+
+/* Campos del formulario */
+.login-modal .form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-modal .form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.login-modal .form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.login-modal .form-group input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
+}
+
+/* Botón */
+.login-modal .btn-login {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-modal .btn-login:hover {
+    background: #2980b9;
+}
+
+/* Info credenciales */
+.login-modal .login-info {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #555;
+    background: #f9f9f9;
+    padding: 10px;
+    border-left: 4px solid #3498db;
+    border-radius: 6px;
+}
+
+.login-modal .login-info code {
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Mensajes */
+.login-modal #loginMessage {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes modalSlideIn {
@@ -729,4 +839,5 @@ nav a:hover, nav a.active {
         min-height: 60vh;
         margin: 1rem 0;
     }
+
 }
