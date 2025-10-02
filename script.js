@@ -175,7 +175,7 @@ function mostrarSeccion(sectionId) {
     }
 }
 
-// RENDERIZAR SEMANAS
+// RENDERIZAR SEMANAS - CÓDIGO CORREGIDO (ELIMINADA LA SECCIÓN DUPLICADA)
 function renderWeeks() {
     const weeksContainer = document.getElementById('weeksContainer');
     if (!weeksContainer) return;
@@ -196,12 +196,6 @@ function renderWeeks() {
             </div>
             
             <div class="week-title">${week.title}</div>
-            
-            ${week.files.length > 0 ? `
-                <ul class="week-files">
-                    ${week.files.map(file => `<li>${file}</li>`).join('')}
-                </ul>
-            ` : ''}
             
             ${week.elements.length > 0 ? `
                 <ul class="week-files">
